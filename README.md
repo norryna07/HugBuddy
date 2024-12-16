@@ -111,9 +111,9 @@ The proprieties of the component were generated using Fritzing app. The whole pr
 ---
 
 #### Keyestudio 8002b - [video](https://youtube.com/shorts/pHokNqjklVg?feature=share)
-<p>
+<div align="center">
 <img src="./images/speaker-module.jpg" style="width: 50%; margin-left: 25%; margin-right: 25%" />
-</p>
+</div>
 
 ---
 
@@ -135,9 +135,9 @@ The proprieties of the component were generated using Fritzing app. The whole pr
 ---
 
 #### Pulse sensor
-<p>
+<div align="center">
 <img src="./images/pulse-module.jpg" style="width: 50%; margin-left: 25%; margin-right: 25%"/>
-</p>
+</div>
 
 ---
 
