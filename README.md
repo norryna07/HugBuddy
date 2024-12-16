@@ -103,33 +103,41 @@ The proprieties of the component were generated using Fritzing app. The whole pr
 
 #### Vibration modules - [video](https://youtube.com/shorts/6yC7BauQsrw?feature=share)
 <p>
-<img src="./images/vibration-module.jpg" width="20%" />
-<img src="./images/vibration-setup.jpeg" width="20%" />
-<img src="./images/vibration-modules.jpg" width="20%" />
+<img src="./images/vibration-module.jpg" width="33%" />
+<img src="./images/vibration-setup.jpeg" width="33%" />
+<img src="./images/vibration-modules.jpg" width="33%" />
 </p>
 
 ---
 
 #### Keyestudio 8002b - [video](https://youtube.com/shorts/pHokNqjklVg?feature=share)
+<p>
 <img src="./images/speaker-module.jpg" style="width: 50%; margin-left: 25%; margin-right: 25%" />
+</p>
 
 ---
 
 #### BMP180 - [video](https://youtube.com/shorts/UoWgT8tCj3w?feature=share)
+<p>
 <img src="./images/bmp180-setup.jpg" style="width: 49%" />
 <img src="./images/bpm180-module.jpg" style="width: 49%" />
+</p>
 
 ---
 
 #### Photocell - [video](https://youtube.com/shorts/r_aeARwO2eg?feature=share)
+<p>
 <img src="./images/photocell-module.jpg" style="width: 33%;" />
 <img src="./images/photocell-setup.jpeg"  style="width: 33%;" />
 <img src="./images/photocell-modules.jpg" style="width: 33%;" />
+</p>
 
 ---
 
 #### Pulse sensor
+<p>
 <img src="./images/pulse-module.jpg" style="width: 50%; margin-left: 25%; margin-right: 25%"/>
+</p>
 
 ---
 
