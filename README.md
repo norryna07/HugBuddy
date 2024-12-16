@@ -102,9 +102,9 @@ The proprieties of the component were generated using Fritzing app. The whole pr
 ### Physical setup
 
 #### Vibration modules - [video](https://youtube.com/shorts/6yC7BauQsrw?feature=share)
-<img src="./images/vibration-module.jpg" width="33%" />
-<img src="./images/vibration-setup.jpeg" width="33%" />
-<img src="./images/vibration-modules.jpg" width="33%" />
+<img src="./images/vibration-module.jpg" width="20%" />
+<img src="./images/vibration-setup.jpeg" width="20%" />
+<img src="./images/vibration-modules.jpg" width="20%" />
 
 ---
 
