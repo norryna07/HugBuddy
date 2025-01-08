@@ -45,7 +45,6 @@ uint8_t WiFiConnection::wifi_init()
 
         if (WiFiConnection::create_friend_connection()) {
             WiFiConnection::save_preferences(preference);
-            Serial.end();
             return 1;
         }
         else {

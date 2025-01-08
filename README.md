@@ -146,6 +146,135 @@ The proprieties of the component were generated using Fritzing app. The whole pr
 
 ## Software Design
 
+### WiFiConnection library
+- main purpose: to handle the WiFi connection between 2 ESP32 and the communication between them
+
+#### External libraries
+
+**WiFi.h**
+- [Documentation](https://docs.arduino.cc/libraries/wifi/)
+- provide functions for scanning the nearest networks, for connecting to a specific network
+- also provide the possibility to create a server that accepts TCP connection, and to create specific clients to connect to other servers
+
+**Preferences.h**
+- [Documentation](https://docs.arduino.cc/libraries/preferences/)
+- provide a method to save different variables (string, int, float etc.) directly into the flash memory in order to be store even if the running program is closed
+- offer the possibility to access variables created on other runs of the program
+
+#### Functions
+
+`wifi_init()`
+- this function will be called in the setup stage of the program
+- check if we have any connection credentials saved in preferences
+  - if **NOT** 
+    - scan the nearest network using `wifi_scan()`
+    - connect to the selected network using `wifi_connect()`
+    - create the connection between this ESP32 and it's pair using `create_friend_connection()`
+    - if all goes well save the connection information using `save_preferences()`
+  - else
+    - set the last IP address used 
+    - connect to the saved network
+    - create the friend connection
+    - if any of this steps fails: delete the saved data from preferences
+  - if anything when wrong in this function will return 0 for failure
+
+`wifi_scan()`
+- use the WiFi.h scan method the find the nearest networks
+- print these network on the serial
+- wait for user to select one of the networks
+- update the SSID variable with the selected one
+
+`wifi_connect()`
+- use the selected SSID and the password provided by the user
+- wait for connection 5 seconds and print the local IP address if the connection succeed
+
+`create_friend_connection()`
+- create an local server that will accept connection from the buddy ESP32
+- try 10 times to connect to the buddy server (using the IP address provided by the user throw serial)
+- and also wait for connection from the buddy ESP32
+- exchange `HELLO` messages
+
+`save_preferences()`
+- use to save the connection details in order to can be used in a other run of the program
+- for static IP: local IP, gateway, subnet mask
+- for WiFi connection: SSID and password
+- for connection with buddy server: buddy IP address
+
+`hug_receive()`
+- return 1 if a `HUG` message is received on the server
+
+`hug_send()`
+- create a client and connect to the buddy server and send a `HUG` message
+
+### Hugs library
+- main purpose: use the pressure sensor the detect a hug and use the motor to simulate a hug
+
+#### External libraries
+
+**Adafruit_BMP085.h**
+- [Documentation](https://docs.arduino.cc/libraries/adafruit-bmp085-library/)
+- provide functions for connection via I2C to the pressure sensor (Adafruit BMP085) and read the different data from it
+
+#### Functions
+
+`hugs_init()`
+- try to initialize the pressure sensor 3 times
+- initialize the pins for motor (as output and set them on low)
+
+`hugs_loop()`
+- run on each loop call from the main program
+- use the functions `hug_simulation()` and `sensor_analyze()`
+
+`hug_simulation()`
+- simulate a hug for 2 seconds
+- if the hug is on and 2 seconds passed (from the start time until now) set the hug on off and close the motors
+
+`sensor_analyze()`
+- read the value of the sensor and get the current state using the no hug, simple hug and hard hug limits
+- use debouncing to update the state of the bear (the debouncing time will be 1 second)
+
+`start_hug()`
+- set the hug on on, start the motors and set the start time with the current time using `millis()`
+
+### LightSpeaker
+
+#### External libraries
+
+**Talkie.h**
+- [Documentation](https://docs.arduino.cc/libraries/talkie/)
+- provide functions that will use an digital to analog convert to make a speaker to tell specific works
+- provide a collection of over 1000 words that can be used
+- can not be use on esp32 directly, need to add manually the library from [this repository](https://github.com/bobh/ESP32Talkie) - and be sure you connect the speaker to 25 pin
+
+**Create new words**
+- to create new words we need to take the `.wav` file and convert using [Linear Predictive Coding](https://en.wikipedia.org/wiki/Linear_predictive_coding)
+- select what words you want to used (search them in the example folder first to see if they already exists)
+- go to [an online text to speech convertor](https://ttsmaker.com/) and create an `.mp3` file for each word (or group of words)
+- take these `.mp3` file, go to Audacity and resample the file using *8000 Hz*, and export the file using *unsigned 8-bit* 
+- clone the project of [python_wizard](https://github.com/ptwz/python_wizard)
+- copy the file inside the project folder and run this command to obtain the encryption to be used with Talkie library
+```bash
+python3 python_wizard -S -T tms5220 -f arduino test.wav
+```
+- detailed instruction can be found [here](https://github.com/berrak/wav-files-to-arduino-talkie-lpc#tools-required-for-converting-wav-files-to-lpc-data)
+
+#### Functions
+
+`light_speaker_init()`
+- set the photocell pins as input and the speaker as output
+- set the speaker on HIGH
+
+`light_speaker_loop()`
+- run on each loop call from the main program
+- use function `light_analyze()`
+  
+`light_analyze()`
+- read the values of both sensors and if both values are smaller than the dark limit set the stage of `DARK`
+- use debouncing to be sure the reading is right
+
+`say_dark()` and `say_hard_hug()`
+- use the created words and the `Talkie.say()` function to tell the whole sentences 
+
 ## Results
 
 ## Conclusions

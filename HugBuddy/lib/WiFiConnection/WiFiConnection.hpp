@@ -16,14 +16,14 @@ class WiFiConnection {
     static const char preference_name[];
     static String ssid, password, myIP, buddyIP;
     static WiFiServer server;
+    
+    static uint8_t wifi_connect();
+    static void wifi_scan();
+    static uint8_t create_friend_connection();
+    static void save_preferences(Preferences);
 
     public:
         static uint8_t wifi_init();
-        static uint8_t wifi_connect();
-        static void wifi_disconnect();
-        static void wifi_scan();
-        static uint8_t create_friend_connection();
-        static void save_preferences(Preferences);
         static uint8_t hug_receive();
         static void hug_send();
 };
