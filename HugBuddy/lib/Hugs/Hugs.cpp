@@ -30,6 +30,11 @@ uint8_t Hugs::hugs_init()
 
     Hugs::last_debouncing_time = millis();
 
+    // set the limits of hugs
+    no_hug_limit = pressure_sensor.readPressure() + 5000;
+    simple_hug_limit = no_hug_limit + 10000;
+    hard_hug_limit = simple_hug_limit + 5000;
+
     return 0;
 }
 

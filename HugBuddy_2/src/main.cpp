@@ -20,6 +20,7 @@ void loop() {
   if (WiFiConnection::hug_receive()) 
   {
     Hugs::start_hug();
+    if (Hugs::get_sensor_state() != NO_HUG) LightSpeaker::say_love();
   }
   switch (Hugs::get_sensor_state())
   {

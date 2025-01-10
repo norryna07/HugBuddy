@@ -272,11 +272,20 @@ python3 python_wizard -S -T tms5220 -f arduino test.wav
 - read the values of both sensors and if both values are smaller than the dark limit set the stage of `DARK`
 - use debouncing to be sure the reading is right
 
-`say_dark()` and `say_hard_hug()`
+`say_dark()`, `say_hard_hug()` and `say_love()`
 - use the created words and the `Talkie.say()` function to tell the whole sentences 
+
+### Main program
+- will be the logic of the program
+- the `init` functions will be called in the `setup()` function
+- in the `loop()` 
+  - run the `loop` functions
+  - if a hug is received, simulate one here
+  - if the bear is hugged when a hug is received make the bear to say **I love you**
+  - if the bear is hugged, send a hug message to the other bear
+  - if the bear is hugged to hard, say it 
+  - if it's dark, make the bear to say it and to be scared
 
 ## Results
 
 ## Conclusions
-
-## Journal
