@@ -58,7 +58,7 @@ void LightSpeaker::light_analyze()
     uint16_t value1 = analogRead(EYE1_PIN);
     uint16_t value2 = analogRead(EYE2_PIN);
     LightState current_state;
-    if (value1 < LightSpeaker::dark_limit && value2 > LightSpeaker::dark_limit) current_state = DARK;
+    if (value1 < LightSpeaker::dark_limit && value2 < LightSpeaker::dark_limit) current_state = DARK;
     else current_state = LIGHT;
     if (current_state != last_state) last_debouncing_time = millis();
     if (millis() - last_debouncing_time > debouncing_time) 
