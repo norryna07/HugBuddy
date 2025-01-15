@@ -1,3 +1,4 @@
+![](./images/hugbuddy.png)
 # HugBuddy
 
 ## General description
