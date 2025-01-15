@@ -53,6 +53,11 @@ void LightSpeaker::say_love()
     voice.say(sp_love);
 }
 
+void LightSpeaker::say_ready() 
+{
+    voice.say(sp_ready);
+}
+
 void LightSpeaker::light_analyze() 
 {
     uint16_t value1 = analogRead(EYE1_PIN);

@@ -34,7 +34,7 @@ uint8_t Hugs::hugs_init()
     simple_hug_limit = no_hug_limit + 10000;
     hard_hug_limit = simple_hug_limit + 5000;
 
-    return 0;
+    return 1;
 }
 
 void Hugs::hugs_loop() 

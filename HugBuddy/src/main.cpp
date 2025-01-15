@@ -7,9 +7,11 @@
 
 void setup() {
   Serial.begin(9600);
-  WiFiConnection::wifi_init();
-  Hugs::hugs_init();
-  LightSpeaker::light_speaker_init();
+  uint8_t correct = 1;
+  correct &= WiFiConnection::wifi_init();
+  correct &= Hugs::hugs_init();
+  correct &= LightSpeaker::light_speaker_init();
+  if (correct) LightSpeaker::say_ready();
 }
 
 void loop() {

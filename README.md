@@ -290,3 +290,29 @@ python3 python_wizard -S -T tms5220 -f arduino test.wav
 - [Demo](https://youtu.be/TLqu1CLfbuo)
 
 ## Conclusions
+
+## Journal
+<p>
+<img src="./images/mate_1.jpeg" style="width: 49%;" />
+<img src="./images/mate_2.jpeg" style="width: 49%;" />
+</p>
+
+<p>
+<img src="./images/matex2.jpeg" style="width: 49%;" />
+<img src="./images/in_work.jpeg" style="width: 49%;" />
+</p>
+
+<p>
+<img src="./images/balon.jpeg" style="width: 49%;" />
+<img src="./images/balon_2.jpeg" style="width: 49%;" />
+</p>
+
+<p>
+<img src="./images/umplutura.jpeg" style="width: 49%;" />
+<img src="./images/cusut.jpeg" style="width: 49%;" />
+</p>
+
+<p>
+<img src="./images/final_1.jpeg" style="width: 49%;" />
+<img src="./images/final_2.jpeg" style="width: 49%;" />
+</p>
